@@ -1,2 +1,2 @@
 # MusicPlayer
-Project in zergitas for IntenrShip Programming
+Project in zergitas for Internship Programming
