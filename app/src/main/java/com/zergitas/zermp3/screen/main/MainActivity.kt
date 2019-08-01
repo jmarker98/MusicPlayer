@@ -354,6 +354,7 @@ class MainActivity : AppCompatActivity(), MainContract.View {
                 listFilter!!.add(song)
             }
         }
+        //van con
     }
 
     fun onClickNavigationItem() {
