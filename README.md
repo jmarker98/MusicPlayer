@@ -1,2 +1,2 @@
 # MusicPlayer
-project in zergitas IntenrShip Programing
+Project in zergitas for IntenrShip Programming
