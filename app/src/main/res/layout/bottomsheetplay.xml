@@ -1,0 +1,259 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:app="http://schemas.android.com/apk/res-auto"
+              android:id="@+id/bottomSheetPlayingsong"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:background="@drawable/background"
+              android:orientation="vertical"
+              app:layout_behavior="android.support.design.widget.BottomSheetBehavior"
+              app:behavior_hideable="false"
+              app:behavior_peekHeight="@dimen/_35sdp">
+    <RelativeLayout
+            android:id="@+id/rl_header"
+            android:padding="@dimen/_3sdp"
+            android:layout_width="match_parent"
+            android:layout_height="50dp">
+        <ImageView
+                android:id="@+id/img_back_bottomsheet"
+                android:src="@drawable/back"
+                android:visibility="gone"
+                android:layout_width="@dimen/_15sdp"
+                android:layout_height="@dimen/_15sdp"/>
+
+        <TextView
+                android:id="@+id/txt_playing_bottomsheet"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Music Playing"
+                android:visibility="gone"
+                android:layout_centerVertical="true"
+                android:layout_centerInParent="true"
+                android:layout_marginLeft="@dimen/_5sdp"
+                android:maxLines="1"
+                android:textColor="@android:color/black"/>
+        <ImageView
+                android:id="@+id/img_icon_bottomsheet"
+                android:layout_width="40dp"
+                android:src="@drawable/icon"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="@dimen/_8sdp"
+                android:layout_height="40dp"/>
+        <TextView
+                android:id="@+id/tv_name_display_bottomsheet"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="The Song is playing in the Screen "
+                android:layout_marginLeft="@dimen/_5sdp"
+
+                android:singleLine="true"
+                android:ellipsize="marquee"
+                android:marqueeRepeatLimit="marquee_forever"
+                android:scrollHorizontally="true"
+
+                android:layout_toRightOf="@id/img_icon_bottomsheet"
+                android:gravity="center"
+                android:layout_toLeftOf="@+id/img_play_bottomsheet"
+                android:textColor="@android:color/black"/>
+        <TextView android:layout_width="wrap_content"
+                  android:text="Singer"
+                  android:layout_toRightOf="@id/img_icon_bottomsheet"
+                  android:id="@+id/tv_singer_display_bottomsheet"
+                  android:layout_marginLeft="@dimen/_5sdp"
+                  android:gravity="center"
+                  android:layout_toLeftOf="@id/img_play_bottomsheet"
+                  android:layout_below="@+id/tv_name_display_bottomsheet"
+                  android:layout_height="wrap_content"/>
+        <ImageView
+                android:id="@+id/img_play_bottomsheet"
+                android:layout_width="@dimen/_17sdp"
+                android:layout_height="@dimen/_17sdp"
+                android:layout_centerInParent="true"
+                android:layout_marginRight="@dimen/_10sdp"
+                android:src="@drawable/play"
+                android:layout_toLeftOf="@id/img_next_bootomsheet"/>
+        <ImageView android:layout_width="@dimen/_20sdp"
+                   android:layout_height="@dimen/_20sdp"
+                   android:id="@+id/img_next_bootomsheet"
+                   android:layout_alignParentRight="true"
+                   android:layout_centerInParent="true"
+                   android:src="@drawable/nextplay"
+                   android:layout_marginRight="@dimen/_12sdp"/>
+        <ImageView
+                android:id="@+id/img_favouriteBts"
+                android:layout_alignParentRight="true"
+                android:src="@drawable/like"
+                android:visibility="gone"
+                android:layout_centerVertical="true"
+                android:layout_width="@dimen/_16sdp"
+                android:layout_height="@dimen/_16sdp"
+                android:layout_marginTop="13dp"/>
+    </RelativeLayout>
+
+    <RelativeLayout android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentTop="true">
+
+        <android.support.v7.widget.CardView
+                android:layout_width="220dp"
+                android:id="@+id/cv_rotateBTS"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:layout_centerHorizontal="true"
+                app:cardBackgroundColor="#C8D4C6"
+                android:layout_height="220dp">
+            <ImageView
+                    android:layout_width="190dp"
+                    android:id="@+id/img_rotatesBts"
+                    android:layout_gravity="center"
+                    android:layout_height="190dp"/>
+        </android.support.v7.widget.CardView>
+
+        <TextView
+                android:id="@+id/tv_currentBts"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/cv_rotateBTS"
+                android:layout_marginTop="5dp"
+                android:layout_alignParentLeft="true"
+                android:text="00:00:00"
+                android:layout_marginLeft="@dimen/_5sdp"
+                android:textColor="@android:color/white"/>
+
+        <SeekBar
+                android:id="@+id/sb_timeBts"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tv_currentBts"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="6dp"
+                android:layout_marginEnd="6dp"/>
+
+        <TextView
+                android:id="@+id/tv_timeBts"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:layout_below="@id/cv_rotateBTS"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="@dimen/_5sdp"
+                android:text="00:00:00"
+                android:textColor="@android:color/white"/>
+        <LinearLayout
+                android:id="@+id/rl_inforBts"
+                android:layout_below="@id/sb_timeBts"
+                android:layout_width="@dimen/_130sdp"
+                android:orientation="vertical"
+                android:background="#08FF0000"
+                android:layout_centerInParent="true"
+                android:layout_height="wrap_content">
+            <TextView
+                    android:id="@+id/tv_name_displayBts"
+                    android:text="Name of Song is Playing"
+                    android:padding="@dimen/_5sdp"
+                    android:textColor="@android:color/black"
+                    android:textSize="17sp"
+
+                    android:singleLine="true"
+                    android:ellipsize="marquee"
+                    android:marqueeRepeatLimit="marquee_forever"
+                    android:scrollHorizontally="true"
+
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+            <TextView
+                    android:id="@+id/tv_singer_displayBts"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_below="@id/tv_name_displayBts"
+                    android:textColor="@android:color/holo_red_dark"
+                    android:text="Singer is Playing"/>
+        </LinearLayout>
+
+
+        <ImageView
+                android:id="@+id/img_previousBts"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_below="@id/rl_inforBts"
+                android:layout_marginTop="25dp"
+                android:layout_toLeftOf="@id/img_playBts"
+                android:src="@drawable/backplay"/>
+
+        <ImageView
+                android:id="@+id/img_playBts"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_below="@id/rl_inforBts"
+                android:layout_centerHorizontal="true"
+                android:layout_marginLeft="30dp"
+                android:layout_marginTop="25dp"
+                android:src="@drawable/play"/>
+
+        <ImageView
+                android:id="@+id/img_nextBts"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_below="@id/rl_inforBts"
+                android:layout_marginLeft="30dp"
+                android:layout_marginTop="25dp"
+                android:layout_toRightOf="@id/img_playBts"
+                android:src="@drawable/nextplay"/>
+
+        <ImageView
+                android:id="@+id/img_loopBts"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:layout_centerInParent="true"
+                android:layout_centerVertical="true"
+                android:layout_centerHorizontal="true"
+                android:layout_below="@id/rl_inforBts"
+                android:layout_marginLeft="25dp"
+                android:layout_marginTop="25dp"
+                android:layout_toRightOf="@id/img_nextBts"
+                android:src="@drawable/loop"/>
+        <ImageView
+                android:id="@+id/img_minvolueBts"
+                android:layout_width="25dp"
+                android:src="@drawable/baseline_volume_mute_black_18dp"
+                android:layout_below="@id/img_previousBts"
+                android:layout_marginTop="20dp"
+                android:layout_toLeftOf="@id/sb_volumeBts"
+                android:layout_height="25dp"/>
+        <SeekBar
+                android:id="@+id/sb_volumeBts"
+                android:layout_width="220dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:thumbTint="#FF0000"
+                android:layout_centerInParent="true"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                android:progressTint="#39FF0000"
+                android:layout_below="@id/img_previousBts"/>
+        <ImageView
+                android:id="@+id/img_maxvolue"
+                android:layout_width="25dp"
+                android:layout_marginTop="20dp"
+                android:src="@drawable/baseline_volume_down_black_18dp"
+                android:layout_below="@id/img_previousBts"
+                android:layout_toRightOf="@id/sb_volumeBts"
+                android:layout_height="25dp"/>
+        <ImageView
+                android:id="@+id/img_ShuffleBts"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:layout_centerInParent="true"
+                android:layout_centerVertical="true"
+                android:layout_centerHorizontal="true"
+                android:layout_below="@id/rl_inforBts"
+                android:layout_marginRight="25dp"
+                android:layout_marginTop="25dp"
+                android:layout_toLeftOf="@id/img_previousBts"
+                android:src="@drawable/shuffle"/>
+    </RelativeLayout>
+
+</LinearLayout>

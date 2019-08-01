@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:title="Library"
+          android:icon="@drawable/baseline_library_music_black_18dp"
+          android:id="@+id/m_library"/>
+    <item
+            android:title="Favourite"
+            android:id="@+id/m_favourite"
+            android:icon="@drawable/like"/>
+    <item android:title="Equalizer"
+          android:id="@+id/m_equalizer"
+          android:icon="@drawable/baseline_equalizer_black_18dp"/>
+    <item android:title="Settings"
+          android:id="@+id/m_settings"
+          android:icon="@drawable/baseline_settings_black_18dp"/>
+</menu>

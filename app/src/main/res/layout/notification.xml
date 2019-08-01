@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:background="@drawable/background"
+        android:layout_height="130dp">
+    <ImageView
+            android:id="@+id/image_thumb"
+            android:padding="7dp"
+            android:layout_width="100dp"
+            android:src="@drawable/icon"
+            android:layout_height="match_parent"/>
+    <TextView
+            android:id="@+id/tv_song"
+            android:layout_toRightOf="@id/image_thumb"
+            android:textColor="@android:color/black"
+            android:text="Name of Song"
+            android:lines="1"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+    <TextView
+            android:id="@+id/tv_singer"
+            android:layout_toRightOf="@id/image_thumb"
+            android:text="Singer"
+            android:lines="1"
+            android:layout_below="@id/tv_song"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+    <ImageView
+            android:id="@+id/image_play"
+            android:src="@drawable/ic_pause"
+            android:layout_width="40dp"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:layout_centerInParent="true"
+            android:layout_below="@id/tv_singer"
+            android:layout_height="40dp"/>
+    <ImageView
+            android:id="@+id/image_prev"
+            android:src="@drawable/ic_previous"
+            android:layout_width="40dp"
+            android:layout_below="@id/tv_singer"
+            android:layout_toLeftOf="@id/image_play"
+            android:layout_centerInParent="true"
+            android:layout_height="40dp"/>
+    <ImageView
+            android:id="@+id/image_next"
+            android:src="@drawable/ic_next"
+            android:layout_width="40dp"
+            android:layout_below="@id/tv_singer"
+            android:layout_toRightOf="@id/image_play"
+            android:layout_centerInParent="true"
+            android:layout_height="40dp"/>
+
+</RelativeLayout>
