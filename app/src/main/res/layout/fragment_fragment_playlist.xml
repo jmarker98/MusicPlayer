@@ -100,8 +100,8 @@
             <android.support.v7.widget.RecyclerView
                     android:id="@+id/rc_list_Playlits"
                     android:layout_width="match_parent"
-                    app:spanCount="2"
                     android:layout_below="@id/tv_added"
+                    app:spanCount="2"
                     app:layoutManager="android.support.v7.widget.GridLayoutManager"
                     android:layout_height="match_parent">
             </android.support.v7.widget.RecyclerView>

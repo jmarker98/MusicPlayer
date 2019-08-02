@@ -2,8 +2,8 @@
 <FrameLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:tools="http://schemas.android.com/tools"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent" android:layout_height="match_parent"
         tools:context=".screen.fragment.FragmentLibrary">
     <android.support.v4.widget.NestedScrollView
             android:layout_width="match_parent"
@@ -24,7 +24,7 @@
                     android:textColor="@android:color/black"/>
             <ListView
                     android:layout_width="match_parent"
-                    android:layout_height="270dp"
+                    android:layout_height="220dp"
                     android:padding="10dp"
                     android:id="@+id/lv_library"/>
 
@@ -36,53 +36,15 @@
                     android:textColor="@android:color/black"
                     android:layout_height="wrap_content"
                     android:id="@+id/tv_added"/>
-            <GridLayout android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:columnCount="2">
-                <ImageView
-                        android:layout_width="150dp"
-                        android:layout_height="150dp"
-                        android:src="@drawable/applenobackground"/>
-                <ImageView
-                        android:layout_width="150dp"
-                        android:layout_height="150dp"
-                        android:layout_marginLeft="10dp"
-                        android:src="@drawable/applenobackground"/>
-                <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Name of Song"
-                        android:textColor="@android:color/black"
-                        android:layout_gravity="center"/>
-                <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Name of Song"
-                        android:textColor="@android:color/black"
-                        android:layout_gravity="center"/>
-                <ImageView
-                        android:layout_width="150dp"
-                        android:layout_height="150dp"
-                        android:src="@drawable/applenobackground"/>
-                <ImageView
-                        android:layout_width="150dp"
-                        android:layout_height="150dp"
-                        android:layout_marginLeft="10dp"
-                        android:src="@drawable/applenobackground"/>
-                <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Name of Song"
-                        android:textColor="@android:color/black"
-                        android:layout_gravity="center"/>
-                <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Name of Song"
-                        android:textColor="@android:color/black"
-                        android:layout_gravity="center"/>
-            </GridLayout>
+
+            <android.support.v7.widget.RecyclerView
+                    android:id="@+id/rc_recently"
+                    app:spanCount="2"
+                    app:layoutManager="android.support.v7.widget.GridLayoutManager"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+            </android.support.v7.widget.RecyclerView>
         </LinearLayout>
 
     </android.support.v4.widget.NestedScrollView>

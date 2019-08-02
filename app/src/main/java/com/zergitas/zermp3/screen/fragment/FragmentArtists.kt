@@ -3,21 +3,15 @@ package com.zergitas.zermp3.screen.fragment
 
 import android.os.Bundle
 import android.support.v4.app.Fragment
-import android.support.v4.app.FragmentManager
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
-
 import com.zergitas.zermp3.R
 import com.zergitas.zermp3.screen.main.MainActivity
 import com.zergitas.zermp3.screen.main.adapter.SingerAdapter
 import com.zergitas.zermp3.widgets.ItemDecoration
 import kotlinx.android.synthetic.main.fragment_fragment_artists.*
-import kotlinx.android.synthetic.main.fragment_fragment_list_song.*
 import kotlinx.android.synthetic.main.fragment_fragment_list_song.img_leftback
-import kotlinx.android.synthetic.main.fragment_fragment_playlist.*
-import kotlin.math.sin
 
 private const val Tag = "FRAGMENT_ARTISTS"
 
@@ -33,8 +27,9 @@ class FragmentArtists : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         img_leftback.setOnClickListener({
-            val fm = activity!!.supportFragmentManager
-            fm.popBackStack(null, FragmentManager.POP_BACK_STACK_INCLUSIVE)
+            val libraryFragment = FragmentLibrary()
+            (activity as MainActivity).supportFragmentManager.beginTransaction()
+                .replace(R.id.frame_View, libraryFragment).commit()
         })
 
         initView()

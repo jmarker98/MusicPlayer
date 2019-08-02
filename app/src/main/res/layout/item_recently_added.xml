@@ -7,7 +7,7 @@
         android:layout_marginRight="@dimen/_10sdp"
         android:layout_gravity="center"
         app:cardCornerRadius="@dimen/_10sdp"
-        android:id="@+id/item_album"
+        android:id="@+id/item_recently"
         android:layout_height="@dimen/_80sdp">
     <LinearLayout
             android:orientation="vertical"
@@ -24,10 +24,10 @@
                 android:layout_height="@dimen/_60sdp"/>
 
         <TextView
-                android:id="@+id/txt_Album_name"
+                android:id="@+id/txt_name"
                 android:maxLines="1"
                 android:ellipsize="end"
-                android:text="singer"
+                android:text="Song"
                 android:textColor="@android:color/black"
                 android:gravity="center"
                 android:textSize="@dimen/_11sdp"

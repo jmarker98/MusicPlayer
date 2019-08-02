@@ -5,6 +5,8 @@ import android.database.sqlite.SQLiteDatabase
 import android.os.Build
 import android.os.Bundle
 import android.support.design.widget.BottomSheetBehavior
+import android.support.v4.app.ActivityCompat.requestPermissions
+import android.support.v4.app.FragmentManager
 import android.support.v7.app.AppCompatActivity
 import android.util.Log
 import android.view.View
@@ -29,6 +31,7 @@ import kotlinx.android.synthetic.main.fragment_fragment_list_song.*
 import kotlinx.android.synthetic.main.fragment_fragment_play_song.*
 import android.text.Editable
 import android.text.TextWatcher
+import com.zergitas.zermp3.screen.playsong.PlaySongContract
 import java.util.Locale.filter
 
 
@@ -106,6 +109,16 @@ class MainActivity : AppCompatActivity(), MainContract.View {
     override fun showErrorSongs() {
 
     }
+
+    override fun onBackPressed() {
+        val manager = supportFragmentManager
+        if (manager.backStackEntryCount > 0) {
+            manager.popBackStack()
+        } else {
+            super.onBackPressed()
+        }
+    }
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -356,6 +369,7 @@ class MainActivity : AppCompatActivity(), MainContract.View {
         }
     }
 
+
     fun onClickNavigationItem() {
         nav_View.setOnNavigationItemSelectedListener({
             when (it.itemId) {
@@ -384,12 +398,14 @@ class MainActivity : AppCompatActivity(), MainContract.View {
         val transaction = manager.beginTransaction()
         val fragment = FragmentFavouriteSongs()
         transaction.replace(com.zergitas.zermp3.R.id.frame_View, fragment)
+        transaction.addToBackStack("favourite")
         transaction.commit()
     }
 
     fun createFragmentEquqlizer() {
         val transaction = manager.beginTransaction()
         val fragment = FragmentEqualizer()
+        transaction.addToBackStack("equalizer")
         transaction.replace(com.zergitas.zermp3.R.id.frame_View, fragment)
         transaction.commit()
     }
@@ -397,6 +413,7 @@ class MainActivity : AppCompatActivity(), MainContract.View {
     fun createFragmentSettings() {
         val transaction = manager.beginTransaction()
         val fragment = FragmentSettings()
+        transaction.addToBackStack("setting")
         transaction.replace(com.zergitas.zermp3.R.id.frame_View, fragment)
         transaction.commit()
     }
@@ -404,6 +421,7 @@ class MainActivity : AppCompatActivity(), MainContract.View {
     fun createFragmentLibrary() {
         val transaction = manager.beginTransaction()
         val fragment = FragmentLibrary()
+        transaction.addToBackStack("library")
         transaction.replace(com.zergitas.zermp3.R.id.frame_View, fragment)
         transaction.commit()
     }

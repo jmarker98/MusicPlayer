@@ -20,8 +20,6 @@ import com.zergitas.zermp3.screen.main.MainActivity
 import com.zergitas.zermp3.widgets.ItemDecoration
 import kotlinx.android.synthetic.main.edit_dialog.view.*
 
-private const val Tag = "FRAGMENT_PLAYLIST"
-
 class FragmentPlaylist : Fragment() {
     lateinit var adapter: PlayListAdapter
     override fun onCreateView(
@@ -39,30 +37,25 @@ class FragmentPlaylist : Fragment() {
     }
 
     private fun onClick() {
-        val addSongFragment = FragmentAddSongsforPlaylist()
-        val main = FragmentLibrary()
-        val transaction = fragmentManager?.beginTransaction()
+
         img_addsong.setOnClickListener({
             if (edt_playlistName.text.toString() == "") {
                 Toast.makeText(activity, "Input PlayList Name!", Toast.LENGTH_SHORT).show()
             } else {
                 insertPlaylist()
+                val addsongs = FragmentAddSongsforPlaylist()
+                val transaction = fragmentManager?.beginTransaction()
                 if (transaction != null) {
-                    transaction.addToBackStack(null)
-                    transaction.replace(R.id.frame_View, addSongFragment)
-                    transaction.remove(this)
+                    transaction.addToBackStack("playlist")
+                    transaction.replace(R.id.frame_View, addsongs)
                     transaction.commit()
                 }
             }
         })
         img_back.setOnClickListener({
-           if (transaction!=null){
-               transaction.addToBackStack(null)
-               transaction.replace(R.id.frame_View, main)
-               transaction.remove(this)
-               transaction.commit()
-           }
-
+            val libraryFragment = FragmentLibrary()
+            (activity as MainActivity).supportFragmentManager.beginTransaction()
+                .replace(R.id.frame_View, libraryFragment).commit()
         })
 
     }

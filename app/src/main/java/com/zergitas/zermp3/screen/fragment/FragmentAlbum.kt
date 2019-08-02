@@ -28,8 +28,9 @@ class FragmentAlbum : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         img_leftback.setOnClickListener({
-            val fm = activity!!.supportFragmentManager
-            fm.popBackStack(null, FragmentManager.POP_BACK_STACK_INCLUSIVE)
+            val libraryFragment = FragmentLibrary()
+            (activity as MainActivity).supportFragmentManager.beginTransaction()
+                .replace(R.id.frame_View, libraryFragment).commit()
         })
         initView()
         super.onViewCreated(view, savedInstanceState)

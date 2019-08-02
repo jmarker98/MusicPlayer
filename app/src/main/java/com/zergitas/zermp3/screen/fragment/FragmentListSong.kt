@@ -72,32 +72,24 @@ class FragmentListSong : Fragment(), MainContract.View {
 
     private fun initRecyclerViewSongs() {
         rc_songs.layoutManager = LinearLayoutManager(activity?.baseContext, LinearLayoutManager.VERTICAL, false)
-        rc_songs.addItemDecoration(
-            ItemDecoration(
-                resources.getDimensionPixelSize(com.zergitas.zermp3.R.dimen._3sdp),
-                0,
-                resources.getDimensionPixelSize(com.zergitas.zermp3.R.dimen._1sdp),
-                resources.getDimensionPixelSize(com.zergitas.zermp3.R.dimen._1sdp)
-            )
-        )
         adapter = SongAdapter((activity as MainActivity).songs!!, activity!!,
             object : SongAdapter.ItemSongListener {
                 override fun onClick(pos: Int, id: Long) {
 
                     (activity as MainActivity).customBottomSheet()
-//                    activity!!.intent.putParcelableArrayListExtra(
-//                        Contants.EXTRA_SONGS,
-//                        (activity as MainActivity).songs as ArrayList<Song>
-//                    )
-//                    activity!!.intent.putExtra(Contants.EXTRA_POSITION, pos)
-//                    val playSong = FragmentPlaySong()
-//                    val transaction = fragmentManager?.beginTransaction()
-//                    if (transaction != null) {
-//                        transaction.addToBackStack(null)
-//                        transaction.replace(com.zergitas.zermp3.R.id.frame_View, playSong)
-//                        transaction.commit()
-//
-//                    }
+                    activity!!.intent.putParcelableArrayListExtra(
+                        Contants.EXTRA_SONGS,
+                        (activity as MainActivity).songs as ArrayList<Song>
+                    )
+                    activity!!.intent.putExtra(Contants.EXTRA_POSITION, pos)
+                    val playSong = FragmentPlaySong()
+                    val transaction = fragmentManager?.beginTransaction()
+                    if (transaction != null) {
+                        transaction.addToBackStack(null)
+                        transaction.replace(com.zergitas.zermp3.R.id.frame_View, playSong)
+                        transaction.commit()
+
+                    }
                 }
             })
         rc_songs.adapter = adapter
@@ -126,14 +118,15 @@ class FragmentListSong : Fragment(), MainContract.View {
     fun serachData() {
         edt_filter.addTextChangedListener(object : TextWatcher {
             override fun afterTextChanged(s: Editable?) {
-                (activity as MainActivity).filter(s.toString())
-                adapter.filterList((activity as MainActivity).listFilter!!)
+
             }
 
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
             }
 
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+                (activity as MainActivity).filter(s.toString())
+                adapter.filterList((activity as MainActivity).listFilter!!)
             }
 
         })

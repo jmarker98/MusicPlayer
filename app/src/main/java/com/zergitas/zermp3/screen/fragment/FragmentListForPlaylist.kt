@@ -35,12 +35,9 @@ class FragmentListForPlaylist : Fragment() {
         initView()
 
         img_back2.setOnClickListener({
-            val fragmentplaylist= FragmentPlaylist()
-            val transaction = fragmentManager?.beginTransaction()
-            transaction!!.remove(this)
-            transaction!!.addToBackStack(null)
-            transaction!!.replace(R.id.frame_View,fragmentplaylist)
-            transaction!!.commit()
+            val libraryFragment = FragmentLibrary()
+            (activity as MainActivity).supportFragmentManager.beginTransaction()
+                .replace(R.id.frame_View, libraryFragment).commit()
 
         })
         super.onViewCreated(view, savedInstanceState)
@@ -71,9 +68,7 @@ class FragmentListForPlaylist : Fragment() {
                     val playSong = FragmentPlaySong()
                     val transaction = fragmentManager?.beginTransaction()
                     if (transaction != null) {
-                        transaction.replace(R.id.frame_View, playSong)
-                        transaction.commit()
-
+                        transaction.replace(R.id.frame_View, playSong).addToBackStack(null).commit()
                     }
                 }
 

@@ -33,8 +33,9 @@ class FragmentListForAlbums : Fragment() {
 
         initView()
         img_Back.setOnClickListener({
-            val fm = activity!!.supportFragmentManager
-            fm.popBackStack(null, FragmentManager.POP_BACK_STACK_INCLUSIVE)
+            val albumsFragment = FragmentAlbum()
+            (activity as MainActivity).supportFragmentManager.beginTransaction()
+                .replace(R.id.frame_View, albumsFragment).commit()
 
         })
         super.onViewCreated(view, savedInstanceState)

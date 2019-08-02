@@ -2,6 +2,7 @@ package com.zergitas.zermp3.screen.fragment
 
 import android.os.Bundle
 import android.support.v4.app.Fragment
+import android.support.v4.app.FragmentManager
 import android.support.v4.app.FragmentTransaction
 import android.support.v7.widget.LinearLayoutManager
 import android.util.Log
@@ -20,7 +21,6 @@ import kotlinx.android.synthetic.main.fragment_fragment_play_song.*
 import kotlinx.android.synthetic.main.item_songs_playlist.*
 import kotlin.math.log
 
-private const val Tag = "FRAGMENT_ADDSONG_FOR_PLAYLIST"
 
 class FragmentAddSongsforPlaylist : Fragment() {
     private lateinit var songplaylistadapter: AddSongforPlaylistAdapter
@@ -89,18 +89,16 @@ class FragmentAddSongsforPlaylist : Fragment() {
     }
 
     fun onClick() {
-        var ft: FragmentTransaction = fragmentManager!!.beginTransaction()
-        var fmpl = FragmentPlaylist()
         img_cancle.setOnClickListener({
-            ft.replace(R.id.frame_View, fmpl)
-            ft.remove(this)
-            ft.commit()
+            val playlistFragment = FragmentPlaylist()
+            (activity as MainActivity).supportFragmentManager.beginTransaction()
+                .replace(R.id.frame_View, playlistFragment).commit()
         })
         img_done.setOnClickListener({
             addtoDb()
-            ft.remove(this)
-            ft.replace(R.id.frame_View, fmpl)
-            ft.commit()
+            val playlistFragment = FragmentPlaylist()
+            (activity as MainActivity).supportFragmentManager.beginTransaction()
+                .replace(R.id.frame_View, playlistFragment).commit()
 
         })
     }

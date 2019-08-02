@@ -29,8 +29,9 @@ class FragmentListforSinger : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         initView()
         img_leftback.setOnClickListener({
-            val fm = activity!!.supportFragmentManager
-            fm.popBackStack(null, FragmentManager.POP_BACK_STACK_INCLUSIVE)
+            val artistsFragment = FragmentArtists()
+            (activity as MainActivity).supportFragmentManager.beginTransaction()
+                .replace(R.id.frame_View, artistsFragment).commit()
 
         })
 
